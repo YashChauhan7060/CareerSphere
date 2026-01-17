@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { IoIosCheckmarkCircleOutline } from "react-icons/io"
 import { RxCrossCircled } from "react-icons/rx"
+import dp from "../assets/dp.png"
 
 function Network() {
 let {serverUrl}=useContext(authDataContext)

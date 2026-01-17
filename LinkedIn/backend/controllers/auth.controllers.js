@@ -1,6 +1,7 @@
 import genToken from "../config/token.js"
 import User from "../models/user.model.js"
 import bcrypt from "bcryptjs"
+
 export const signUp=async (req,res)=>{
     try {
         const {firstName,lastName,userName,email,password}=req.body
@@ -38,7 +39,6 @@ export const signUp=async (req,res)=>{
     } catch (error) {
         console.log(error);
         return res.status(500).json({message:"signup error"})
-   
     }
 }
 
@@ -54,7 +54,7 @@ export const login=async (req,res)=>{
        if(!isMatch){
         return res.status(400).json({message:"incorrect password"})
        }
-   
+
         let token=await genToken(user._id)
         res.cookie("token",token,{
          httpOnly:true,

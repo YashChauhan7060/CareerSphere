@@ -41,7 +41,6 @@ useEffect(()=>{
   getPost()
 },[])
 
-
   const value={
     userData,setUserData,edit,setEdit,postData,setPostData,getPost
   }

@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: careersphere-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: NODE_ENVIRONMENT
+        value: "production"
+      - key: MONGODB_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        value: "dwbmiw6ji"
+      - key: CLOUDINARY_API_KEY
+        value: "658134289936114"
+      - key: CLOUDINARY_API_SECRET
+        sync: false
