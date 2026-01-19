@@ -6,7 +6,7 @@ import dp from "../assets/dp.webp"
 import { CheckCircle2, XCircle, Users, UserPlus, Clock, Sparkles, TrendingUp, Moon, Sun } from 'lucide-react'
 import io from "socket.io-client"
 
-const socket = io("http://localhost:8000")
+const socket = io("https://careersphere-backend3.onrender.com")
 
 function Network() {
   let { serverUrl } = useContext(authDataContext)
