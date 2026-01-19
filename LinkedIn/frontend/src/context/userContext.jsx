@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom'
 export const userDataContext=createContext()
 import {io} from "socket.io-client"
 
-export let socket=io("https://careersphere-backend3.onrender.com")
+export let socket = io(import.meta.env.VITE_BACKEND_URL || "https://careersphere-backend3.onrender.com", {
+  withCredentials: true
+})
 function UserContext({children}) {
 let [userData,setUserData]=useState(null)
 let {serverUrl}=useContext(authDataContext)
@@ -39,7 +41,7 @@ const getPost=async ()=>{
 
 const handleGetProfile=async (userName)=>{
    try {
-    let result=await axios.get(serverUrl+`/api/user/profile/${userName}`,{
+    let result=await axios.get(`${serverUrl}/api/user/profile/${userName}`,{
       withCredentials:true
     })
     setProfileData(result.data)
