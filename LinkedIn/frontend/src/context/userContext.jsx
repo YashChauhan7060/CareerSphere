@@ -3,7 +3,10 @@ import { authDataContext } from './AuthContext'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 export const userDataContext=createContext()
+import {io} from "socket.io-client"
 
+
+export let socket=io("https://careersphere-backend3.onrender.com")
 function UserContext({children}) {
 let [userData,setUserData]=useState(null)
 let {serverUrl}=useContext(authDataContext)
