@@ -23,9 +23,11 @@ export const io=new Server(server,{
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:"https://careersphere-frontend.onrender.com",
-    credentials:true
-}))
+  origin: "https://careersphere-frontend.onrender.com", 
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 let port=process.env.PORT || 5000
 
 app.use("/api/auth",authRouter)
