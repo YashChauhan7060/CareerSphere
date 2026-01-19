@@ -30,6 +30,18 @@ app.use(cors({
 }));
 let port=process.env.PORT || 5000
 
+
+app.use((req, res, next) => {
+  console.log('═══════════════════════════════════════');
+  console.log(`📨 ${new Date().toISOString()}`);
+  console.log(`${req.method} ${req.path}`);
+  console.log('Origin:', req.headers.origin);
+  console.log('Cookies:', req.cookies);
+  console.log('Body:', req.body);
+  console.log('═══════════════════════════════════════');
+  next();
+});
+
 app.use("/api/auth",authRouter)
 app.use("/api/user",userRouter)
 app.use("/api/post",postRouter)
