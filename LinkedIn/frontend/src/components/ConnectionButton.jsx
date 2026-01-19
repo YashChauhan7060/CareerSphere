@@ -4,7 +4,7 @@ import axios from 'axios'
 import io from "socket.io-client"
 import { userDataContext } from '../context/userContext'
 import { useNavigate } from 'react-router-dom'
-const socket=io("http://localhost:8000")
+const socket=io("https://careersphere-backend3.onrender.com")
 function ConnectionButton({userId}) {
 let {serverUrl}=useContext(authDataContext)
 let {userData,setUserData}=useContext(userDataContext)
