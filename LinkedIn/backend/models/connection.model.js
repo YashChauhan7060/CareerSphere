@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 let connectionSchema=new mongoose.Schema({
     sender:{
@@ -14,7 +14,7 @@ let connectionSchema=new mongoose.Schema({
         enum:["pending","accepted","rejected"],
         default:"pending"
     }
-    
+
 },{timestamps:true})
 
 const Connection=mongoose.model("Connection",connectionSchema)
