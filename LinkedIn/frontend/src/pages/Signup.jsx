@@ -85,7 +85,7 @@ function Signup() {
       </div>
 
       {/* Right Panel - Signup Form */}
-      <div className='w-full lg:w-1/2 flex items-center justify-center p-8 bg-gray-50'>
+      <div className='w-full lg:w-1/2 flex items-center justify-center p-8 bg-gray-50 relative'>
         <div className='w-full max-w-md'>
           {/* Logo for mobile */}
           <div className='lg:hidden mb-8 flex justify-center items-center gap-3'>
@@ -220,6 +220,12 @@ function Signup() {
               </p>
             </form>
           </div>
+        </div>
+
+        {/* Copyright Footer */}
+        <div className='absolute bottom-4 left-4 lg:left-8 text-sm text-gray-500'>
+          <p>© 2027 <span className='font-semibold text-gray-700'>Yash Chauhan</span></p>
+          <p className='text-xs mt-1'>B.Tech Student, MNNIT Allahabad</p>
         </div>
       </div>
     </div>
