@@ -16,17 +16,31 @@ let app=express()
 let server=http.createServer(app)
 export const io=new Server(server,{
     cors:({
-        origin:"http://localhost:5173",
+        origin:"https://careersphere-frontend.onrender.com",
         credentials:true
     })
 })
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
-}))
+  origin: "https://careersphere-frontend.onrender.com", 
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 let port=process.env.PORT || 5000
+
+
+app.use((req, res, next) => {
+  console.log('═══════════════════════════════════════');
+  console.log(`📨 ${new Date().toISOString()}`);
+  console.log(`${req.method} ${req.path}`);
+  console.log('Origin:', req.headers.origin);
+  console.log('Cookies:', req.cookies);
+  console.log('Body:', req.body);
+  console.log('═══════════════════════════════════════');
+  next();
+});
 
 app.use("/api/auth",authRouter)
 app.use("/api/user",userRouter)
